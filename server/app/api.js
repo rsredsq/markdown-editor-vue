@@ -8,16 +8,18 @@ const router = express.Router();
 
 const debug = require("debug")("app:api");
 
-router.get("/", (req, res) => {
-  res.sendStatus(200);
-});
-
 const isObjectId = value => {
   if (!mongoose.Types.ObjectId.isValid(value)) {
     throw new Error("Id is not ObjectId");
   }
   return true;
 };
+
+router.get("/", (req, res) => {
+  MarkdownEntity.find((err, entities) => {
+    res.json(entities);
+  });
+});
 
 router.get("/:id", [check("id").custom(isObjectId)], (req, res) => {
   validationResult(req).throw();
@@ -32,8 +34,7 @@ router.post(
     check("title")
       .isString()
       .not()
-      .isEmpty(),
-    check("content").isString()
+      .isEmpty()
   ],
   (req, res) => {
     validationResult(req).throw();

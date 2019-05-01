@@ -2,6 +2,7 @@ import express from "express";
 import cookieParser from "cookie-parser";
 import logger from "morgan";
 import mongoose from "mongoose";
+import cors from "cors";
 import { UNPROCESSABLE_ENTITY } from "http-status-codes";
 
 const debug = require("debug")("app:");
@@ -14,6 +15,7 @@ app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(cors());
 
 app.use("/api/1.0/markdowns", api);
 

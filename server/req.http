@@ -5,6 +5,11 @@
 # * 'ptr' and 'ptrp' create a POST request with a simple or parameter-like body;
 # * 'mptr' and 'fptr' create a POST request to submit a form with a text or file field (multipart/form-data);
 
+GET http://localhost:3000/api/1.0/markdowns
+Content-Type: application/json
+
+###
+
 POST http://localhost:3000/api/1.0/markdowns
 Content-Type: application/json
 
@@ -14,3 +19,23 @@ Content-Type: application/json
 }
 
 ###
+
+GET http://localhost:3000/api/1.0/markdowns/5cc8bea2e3838619a3450380
+Content-Type: application/json
+
+###
+
+PUT http://localhost:3000/api/1.0/markdowns/5cc8bea2e3838619a3450380
+Content-Type: application/json
+
+{
+  "title": "new title2222234234234",
+  "content": "typo content"
+}
+###
+
+DELETE http://localhost:3000/api/1.0/markdowns/5cc9548744dceb1cb844585e
+Content-Type: application/json
+
+###
+
