@@ -12,4 +12,24 @@ function deleteDocument(id) {
   return axios.delete(`${API_URL}/${id}`).then(res => res.data);
 }
 
-export default { newDocument, deleteDocument };
+function fetchDocuments() {
+  return axios.get(API_URL).then(res => res.data);
+}
+
+function fetchDocument(id) {
+  return axios.get(`${API_URL}/${id}`).then(res => res.data);
+}
+
+function saveDocument(id, title, content) {
+  return axios
+    .put(`${API_URL}/${id}`, { title, content })
+    .then(res => res.data);
+}
+
+export default {
+  newDocument,
+  deleteDocument,
+  fetchDocuments,
+  fetchDocument,
+  saveDocument
+};

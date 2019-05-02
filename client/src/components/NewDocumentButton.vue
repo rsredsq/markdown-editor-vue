@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="d-flex justify-content-center">
     <b-button variant="success" class="mb-2 mt-2" v-b-modal.modal-new-document>
       New document
     </b-button>
